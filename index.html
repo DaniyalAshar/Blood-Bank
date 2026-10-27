@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeDrop | 3D Blood Bank</title>
+  <meta name="description" content="Blood donor registration and blood request portal.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#home"><span>♥</span> LifeDrop</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#search">Find Blood</a>
+      <a href="#donate">Become a Donor</a>
+      <a href="#request">Request Blood</a>
+    </nav>
+
+<div 
+  class="nav-actions">
+  <a href="login.html" class="login-btn">Login</a>
+  <a class="nav-btn" href="#donate">Donate Now +</a>
+</div>
+
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="live-dot"></span> EVERY DROP COUNTS</p>
+        <h1>Give Blood.<br>Give <span>Life.</span></h1>
+        <p class="hero-description">
+          One donation can make a difference. Connect with blood donors
+          and help someone get the blood they need.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#donate">♥ Become a Donor</a>
+          <a class="secondary-btn" href="#search">Find Blood ↗</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>8</strong><span>Blood Groups</span></div>
+          <div><strong>24/7</strong><span>Access Portal</span></div>
+          <div><strong>1</strong><span>Shared Mission</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Animated 3D blood drop">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="blood-drop">
+          <div class="drop-shine"></div>
+          <div class="drop-heart">♥</div>
+        </div>
+        <div class="float-card card-top">
+          <span class="mini-icon">♥</span>
+          <div><strong>Be a Hero</strong><small>Donate blood today</small></div>
+        </div>
+        <div class="float-card card-bottom">
+          <span class="pulse-icon">+</span>
+          <div><strong>Save Lives</strong><small>Every drop matters</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <span>✦</span>
+      <p>Find donors in your city or register to help patients in need.</p>
+    </section>
+
+    <section class="section" id="search">
+      <div class="section-heading">
+        <p class="eyebrow">QUICK SEARCH</p>
+        <h2>Find a Blood Donor</h2>
+        <p>Search registered donors by blood group and city.</p>
+      </div>
+
+      <form id="search-form" class="search-panel">
+        <label>Blood Group
+          <select id="search-group">
+            <option value="">All groups</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option>
+            <option>O+</option><option>O-</option>
+          </select>
+        </label>
+        <label>City
+          <input id="search-city" maxlength="100"
+                 placeholder="Enter city name">
+        </label>
+        <button class="primary-btn" type="submit">Search Donors ↗</button>
+      </form>
+      <p id="search-status" class="status" aria-live="polite"></p>
+      <div id="donor-results" class="donor-grid"></div>
+    </section>
+
+    <section class="section soft-section" id="donate">
+      <div class="section-heading">
+        <p class="eyebrow">MAKE A DIFFERENCE</p>
+        <h2>Become a Donor</h2>
+        <p>Register your details to let people find you when help is needed.</p>
+      </div>
+
+      <form id="donor-form" class="form-card">
+        <label>Full Name
+          <input name="name" required maxlength="100"
+                 autocomplete="name" placeholder="Your full name">
+        </label>
+        <label>Phone Number
+          <input name="phone" required maxlength="20"
+                 type="tel" autocomplete="tel" placeholder="Your contact number">
+        </label>
+        <label>City
+          <input name="city" required maxlength="100"
+                 autocomplete="address-level2" placeholder="Your city">
+        </label>
+        <label>Blood Group
+          <select name="blood_group" required>
+            <option value="">Select blood group</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option>
+            <option>O+</option><option>O-</option>
+          </select>
+        </label>
+        <button class="primary-btn full-width" type="submit">
+          Register as Donor ♥
+        </button>
+        <p id="donor-status" class="status" aria-live="polite"></p>
+      </form>
+      <p class="privacy-note">
+        Your name, city and blood group will be searchable. Do not register
+        someone else's information without their permission.
+      </p>
+    </section>
+
+    <section class="section" id="request">
+      <div class="section-heading">
+        <p class="eyebrow">NEED HELP?</p>
+        <h2>Request Blood</h2>
+        <p>Submit a request for the blood group and quantity required.</p>
+      </div>
+
+      <form id="request-form" class="form-card">
+        <label>Patient Name
+          <input name="patient_name" required maxlength="100"
+                 placeholder="Patient's name">
+        </label>
+        <label>Contact Number
+          <input name="phone" required maxlength="20" type="tel"
+                 placeholder="Contact number">
+        </label>
+        <label>City
+          <input name="city" required maxlength="100"
+                 placeholder="City">
+        </label>
+        <label>Blood Group Required
+          <select name="blood_group" required>
+            <option value="">Select blood group</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option>
+            <option>O+</option><option>O-</option>
+          </select>
+        </label>
+        <label>Units Required
+          <input name="units" type="number" min="1" max="20"
+                 value="1" required>
+        </label>
+        <button class="primary-btn full-width" type="submit">
+          Submit Blood Request ↗
+        </button>
+        <p id="request-status" class="status" aria-live="polite"></p>
+      </form>
+      <p class="privacy-note">
+        This website submits requests but does not confirm blood availability
+        or guarantee a donor. For urgent needs, contact a hospital or licensed
+        blood bank directly.
+      </p>
+    </section>
+
+    <section class="cta">
+      <p class="eyebrow">YOUR DONATION MATTERS</p>
+      <h2>Be someone's reason to smile.</h2>
+      <a href="#donate" class="light-btn">Join the Donor Community ♥</a>
+    </section>
+  </main>
+
+  
+<footer class="site-footer">
+  <div class="footer-main">
+
+    <div class="footer-brand">
+      <a href="#home" class="footer-logo">
+        <span class="footer-heart">♥</span> LifeDrop
+      </a>
+
+      <p class="footer-description">
+        Every drop matters. LifeDrop connects blood donors with people
+        who need help. Join our community and make a difference.
+      </p>
+
+      <div class="footer-badge">
+        <span>♥</span>
+        <div>
+          <strong>Donate Blood, Save Lives</strong>
+          <small>Be someone's hero today.</small>
+        </div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/" aria-label="Instagram">◎</a>
+        <a href="https://www.linkedin.com/" aria-label="LinkedIn">in</a>
+        <a href="https://www.youtube.com/" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <a href="#home">Home</a>
+      <a href="#search">Find Blood</a>
+      <a href="#donate">Become a Donor</a>
+      <a href="#request">Request Blood</a>
+      <a href="login.html">Login</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Blood Groups</h3>
+      <div class="footer-blood-groups">
+        <a href="#search">A+</a>
+        <a href="#search">A−</a>
+        <a href="#search">B+</a>
+        <a href="#search">B−</a>
+        <a href="#search">AB+</a>
+        <a href="#search">AB−</a>
+        <a href="#search">O+</a>
+        <a href="#search">O−</a>
+      </div>
+      <p class="footer-small">
+        Search registered donors by blood group and city.
+      </p>
+    </div>
+
+    <div class="footer-column footer-contact">
+      <h3>Contact & Support</h3>
+      <p><span>✉</span> Contact the website administrator</p>
+      <p><span>♥</span> Support blood donation awareness</p>
+      <p><span>⌖</span> Search donors in your city</p>
+      <a class="footer-contact-btn" href="#request">
+        Need Blood? Get Started →
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-emergency">
+    <div class="emergency-icon">+</div>
+    <div>
+      <strong>Need blood urgently?</strong>
+      <p>
+        Contact a hospital or licensed blood bank directly for urgent
+        medical assistance and verified blood availability.
+      </p>
+    </div>
+    <a href="#request">Submit Request ↗</a>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 LifeDrop Blood Bank. All rights reserved.</p>
+    <p>Made with <span class="footer-heart">♥</span> to support life.</p>
+    <a href="#home">Back to Top ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
