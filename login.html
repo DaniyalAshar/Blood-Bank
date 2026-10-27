@@ -7,23 +7,31 @@
   <title>Login | LifeDrop Blood Bank</title>
   <link rel="stylesheet" href="style1.css">
 </head>
+
 <body class="login-page">
 
   <header class="navbar">
-    <a class="logo" href="index.html"><span>♥</span> LifeDrop</a>
+    <a class="logo" href="index.html">
+      <span>♥</span> LifeDrop
+    </a>
     <a href="index.html" class="login-btn">← Back to Home</a>
   </header>
 
   <main class="login-container">
+
     <section class="login-card">
       <div class="login-symbol">♥</div>
+
       <p class="eyebrow">WELCOME BACK</p>
+
       <h1>Login to <span>LifeDrop</span></h1>
+
       <p class="login-subtitle">
         Sign in to continue your journey of saving lives.
       </p>
 
       <form id="login-form">
+
         <label for="email">Email Address</label>
         <input
           id="email"
@@ -49,19 +57,23 @@
         </button>
 
         <p id="login-message" class="status" aria-live="polite"></p>
+
       </form>
 
       <p class="login-footer">
-        New to LifeDrop? <a href="index.html#donate">Become a Donor</a>
+        New to LifeDrop?
+        <a href="index.html#donate">Become a Donor</a>
       </p>
     </section>
 
     <div class="login-visual">
       <div class="login-orbit"></div>
       <div class="login-drop">♥</div>
+
       <h2>Every drop counts.</h2>
       <p>One small act can make a big difference.</p>
     </div>
+
   </main>
 
   <script>
@@ -70,12 +82,24 @@
       function(event) {
         event.preventDefault();
 
-        document.getElementById("login-message").textContent =
-          "Login verification abhi Python backend se connect nahi hai.";
-        document.getElementById("login-message").className =
-          "status error";
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const message = document.getElementById("login-message");
+
+        if (!email || !password) {
+          message.textContent = "Please enter your email and password.";
+          message.className = "status error";
+          return;
+        }
+
+        // Demo only: this does not verify credentials.
+        message.textContent = "Demo login successful. Opening homepage...";
+        message.className = "status success";
+
+        window.location.href = "index.html";
       }
     );
   </script>
+
 </body>
 </html>
